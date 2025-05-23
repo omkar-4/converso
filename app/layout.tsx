@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import {Bricolage_Grotesque} from 'next/font/google';
-import './globals.css';
+import { Bricolage_Grotesque } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
-  subsets:["latin"],
-})
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Converso",
@@ -17,11 +18,14 @@ export default function Rootlayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return(
+  return (
     <html lang="en">
-      <body className={`${bricolage.variable} antialiased`}>
+      <body className={
+        `${bricolage.variable} bgantialiased`
+      }>
+        <Navbar />
         {children}
       </body>
     </html>
-  )
+  );
 }
